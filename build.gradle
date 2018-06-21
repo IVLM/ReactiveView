@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+ext {
+
+    //For bintray and jcenter distribution
+    bintrayRepo = 'ReactiveView'
+    bintrayName = 'reactiveview'
+
+    publishedGroupId = 'com.ciphercrypt'
+    libraryName = 'ReactiveView'
+    artifact = 'reactiveview' //This artifact name should be the same with library module name
+
+    libraryDescription = 'Change your application language without restarting the apps to take the effect'
+
+    siteUrl = 'https://github.com/IVLM/ReactiveView'
+    gitUrl = 'https://github.com/IVLM/ReactiveView.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'IVLM'
+    developerName = 'IVLM'
+    developerEmail = 'irfanalfiansyah10@gmail.com'
+    organization = 'ciphercrypt' // if you push to organization's repository.
+    licenseName = 'The Apache Software License, Version 2.0'  //Example for license
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+}
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    //testImplementation 'junit:junit:4.12'
+    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+apply from: 'https://raw.githubusercontent.com/IVLM/library-setting/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/IVLM/library-setting/master/bintray.gradle'
